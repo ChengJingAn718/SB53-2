@@ -208,8 +208,8 @@ const BaseScene = React.forwardRef(({ nextFunc, _geo, _baseGeo, showMusicBtn }, 
                             style={{
                                 position: 'fixed',
                                 width: _baseGeo.width * 0.115 + 'px',
-                                left: _baseGeo.width * 0.07 + 'px',
-                                top: _baseGeo.height * 0.03 + 'px',
+                                left: _baseGeo.left + _baseGeo.width * 0.07 + 'px',
+                                bottom: _baseGeo.bottom + _baseGeo.height * 0.45 + 'px',
                                 pointerEvents: 'none',
                                 overflow: 'visible'
                             }}

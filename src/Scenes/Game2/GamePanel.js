@@ -9,7 +9,7 @@ let timerList = []
 //3.5,-3.5,
 // 5,-5
 
-const stepRange = -0.04
+const stepRange = -0.025
 
 let isGameStarted = false;
 let currentNum = 0;
@@ -24,7 +24,7 @@ export default function Scene2({ finishGame, _baseGeo, stopSound }) {
     const baseRef = useRef()
     const backRef = useRef()
 
-    const layoutStartPos = { x: -5, y: 3.5 }
+    const layoutStartPos = { x: -5, y: 3.45 }
     const translateStartPos = { x: 5, y: 3.5 }
 
     const characterList = Array.from({ length: 5 }, ref => useRef())
@@ -45,9 +45,9 @@ export default function Scene2({ finishGame, _baseGeo, stopSound }) {
     // height : - ->+
 
     const upStairList = [
-        0, -0.45, -0.7, -1.02,
-        -1.42, -1.78, -2.3,
-        -2.7, -3.06, -3.38, -3.7
+        0, -0.25, -0.5, -0.7,
+        -0.9, -1.12, -1.42,
+        -1.67, -1.91, -2.15, -2.4
     ]
 
     const heightList = [
@@ -258,7 +258,7 @@ export default function Scene2({ finishGame, _baseGeo, stopSound }) {
                                     }, 100);
 
                                     audioList.successAudio.play()
-                                    
+
                                     setTimeout(() => {
                                         audioList.bodyAudio.play();
                                         audioList.clapAudio.play();
@@ -357,10 +357,15 @@ export default function Scene2({ finishGame, _baseGeo, stopSound }) {
                         cursor: 'pointer',
                         bottom: (layoutStartPos.y + 0.15) * 100 + '%',
                         left: (layoutStartPos.x - 0.12) * 100 + '%',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
                     }}>
 
-                    <img draggable={false} width={"285%"}
+                    <img draggable={false}
+                        style={{
+                            position: 'absolute', width: _baseGeo * 0.3 + 'px'
+                            , left: '0%', top: '0%'
+                        }}
+                        width={"285%"}
                         src={prePathUrl() + 'images/SB54_Intro BG/SB_54_Intro_Game_2_PI_01.svg'}
                     />
                 </div>
